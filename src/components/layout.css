@@ -1,0 +1,415 @@
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background-color: var(--bg);
+  color: var(--text-main);
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--bg-card);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.logo-text {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Nav + theme toggle */
+
+.nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.nav-link.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.4rem;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+/* theme toggle button */
+
+.theme-toggle {
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+.theme-toggle-icon {
+  font-size: 0.9rem;
+}
+
+.app-main {
+  flex: 1;
+  padding: 2.5rem 3rem 3rem;
+  max-width: 1200px;
+  margin: 0 auto; /* center content */
+}
+
+.app-footer {
+  padding: 1.5rem 3rem;
+  border-top: 1px solid var(--border);
+  background-color: var(--bg-card);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer-sub {
+  margin-top: 0.25rem;
+}
+
+/* Sections */
+
+.section {
+  margin-bottom: 3rem;
+}
+
+/* HERO – use gradient + palette strongly */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem 2rem 2.5rem;
+  border-radius: 1.2rem;
+  background: radial-gradient(
+      circle at top left,
+      rgba(152, 193, 217, 0.4),
+      transparent 55%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(224, 251, 252, 0.98),
+      rgba(152, 193, 217, 0.4)
+    );
+  border: 1px solid var(--border);
+}
+
+.hero-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.hero-title {
+  font-size: 2.4rem;
+  margin: 0.4rem 0 0.6rem;
+}
+
+.hero-subtitle {
+  color: var(--text-muted);
+  max-width: 30rem;
+  font-size: 0.98rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.2rem;
+}
+
+.hero-meta {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.hero-meta span {
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  background-color: rgba(152, 193, 217, 0.25); /* soft powder blue */
+}
+
+/* Hero side card */
+
+.hero-card {
+  background-color: var(--bg-card);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 25px rgba(41, 50, 65, 0.08); /* jet-black soft shadow */
+}
+
+.hero-card h3 {
+  margin-top: 0;
+  color: var(--text-main);
+}
+
+
+/* Dark mode tweaks for hero */
+
+:root[data-theme="dark"] .hero {
+  background: radial-gradient(
+      circle at top left,
+      rgba(152, 193, 217, 0.1),
+      transparent 55%
+    ),
+    linear-gradient(
+      135deg,
+      #111827,
+      #1f2933
+    ); /* darker gradient for contrast */
+  border-color: #3d5a80; /* dusk blue */
+}
+
+:root[data-theme="dark"] .hero-title {
+  color: var(--text-main); /* bright heading */
+}
+
+:root[data-theme="dark"] .hero-subtitle {
+  color: var(--text-muted); /* powder/dusk blue */
+}
+
+:root[data-theme="dark"] .hero-eyebrow {
+  color: var(--accent); /* burnt peach still pops */
+}
+
+:root[data-theme="dark"] .hero-meta span {
+  background-color: rgba(152, 193, 217, 0.18); /* soft chip */
+  color: var(--text-main);
+}
+
+:root[data-theme="dark"] .hero-card {
+  background-color: #111827;
+  border-color: #3d5a80;
+}
+
+/* Sections / cards */
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.card {
+  background-color: var(--bg-card);
+  border-radius: 0.9rem;
+  padding: 1.3rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 18px rgba(41, 50, 65, 0.04);
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 26px rgba(41, 50, 65, 0.12);
+}
+
+/* Buttons */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease,
+    border-color 0.15s ease, transform 0.1s ease;
+}
+
+.btn.primary {
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+.btn.primary:hover {
+  transform: translateY(-1px);
+  background-color: #d95b3b; /* slightly darker burnt peach */
+}
+
+.btn.secondary {
+  background-color: transparent;
+  color: var(--text-main);
+  border-color: var(--border);
+}
+
+.btn.secondary:hover {
+  border-color: var(--accent);
+}
+
+/* Contact form, etc. – you can keep your existing styles here */
+
+/* Simple responsiveness */
+
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .app-main,
+  .app-footer {
+    padding: 1.5rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+
+  .nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+}
+
+
+/* CONTACT SECTION */
+
+.contact-section {
+  max-width: 640px;
+  margin: 0 auto; /* center the whole contact block */
+}
+
+.contact-form {
+  margin-top: 1.5rem;
+  padding: 1.5rem 1.75rem;
+  border-radius: 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 24px rgba(41, 50, 65, 0.08);
+}
+
+.contact-form .form-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.contact-form label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+  color: var(--text-main);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  font-size: 0.9rem;
+  font-family: inherit;
+  background-color: var(--bg);
+  color: var(--text-main);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* Give the button a bit of spacing from the last field */
+.contact-form .btn.primary {
+  margin-top: 0.5rem;
+}
+
+/* In dark mode, make the inputs slightly lighter than the page bg for contrast */
+:root[data-theme="dark"] .contact-form input,
+:root[data-theme="dark"] .contact-form textarea {
+  background-color: #111827;
+  border-color: #3d5a80;
+}

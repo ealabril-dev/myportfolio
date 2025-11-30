@@ -1,0 +1,77 @@
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Brand colors */
+  --dusk-blue: #3d5a80;
+  --powder-blue: #98c1d9;
+  --light-cyan: #e0fbfc;
+  --burnt-peach: #ee6c4d;
+  --jet-black: #293241;
+
+  /* Default to light theme */
+  --bg: var(--light-cyan);
+  --bg-card: #ffffff;
+  --border: var(--powder-blue);
+  --text-main: var(--jet-black);
+  --text-muted: var(--dusk-blue);
+  --accent: var(--burnt-peach);
+  --accent-soft: rgba(238, 108, 77, 0.15);
+}
+
+/* Explicit light theme */
+:root[data-theme="light"] {
+  --bg: var(--light-cyan);
+  --bg-card: #ffffff;
+  --border: var(--powder-blue);
+  --text-main: var(--jet-black);
+  --text-muted: var(--dusk-blue);
+  --accent: var(--burnt-peach);
+  --accent-soft: rgba(238, 108, 77, 0.15);
+}
+
+/* Dark theme */
+:root[data-theme="dark"] {
+  --bg: #111827; /* near-black background */
+  --bg-card: #1f2933; /* card background */
+  --border: #3d5a80; /* dusk blue border */
+  --text-main: #e0fbfc; /* light cyan text */
+  --text-muted: #98c1d9; /* powder blue */
+  --accent: var(--burnt-peach); /* keep accent the same */
+  --accent-soft: rgba(238, 108, 77, 0.22);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text-main);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Links */
+a {
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  opacity: 0.85;
+}
+
+/* Buttons base reset */
+button {
+  font-family: inherit;
+}
