@@ -39,7 +39,14 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ compact }) => {
       role: "Wordpress Developer",
       description:
         "Ensured high stability and optimized the performance of a network of Facility CMS websites built on WordPress. The work involved developing custom themes/plugins, managing update lifecycles, and implementing robust security enhancements.",
-      tech: ["PHP ", "MySQL", "HTML", "CSS"],
+      tech: ["PHP", "MySQL", "HTML", "CSS"],
+    },
+    {
+      name: "Travel One - Web System",
+      role: "Freelance Web Developer",
+      description:
+        "Developed a full system that Booking Platform for a Travel Agency. Provided a seamless system flow and also able to produce the required functions of the Users and Admin Staff",
+      tech: ["Vue.js", "Laravel", "PostgreSQL"],
     },
   ];
 
